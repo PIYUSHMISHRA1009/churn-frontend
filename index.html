@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Churn Predictor</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Customer Churn Prediction</h1>
+    <form id="churnForm">
+      <!-- All fields from schema.py -->
+      <label>Gender:</label>
+      <select name="gender" required>
+        <option>Female</option>
+        <option>Male</option>
+      </select>
+
+      <label>Senior Citizen (0 = No, 1 = Yes):</label>
+      <select name="SeniorCitizen" required>
+        <option value="0">0</option>
+        <option value="1">1</option>
+      </select>
+
+      <label>Partner:</label>
+      <select name="Partner" required><option>Yes</option><option>No</option></select>
+
+      <label>Dependents:</label>
+      <select name="Dependents" required><option>Yes</option><option>No</option></select>
+
+      <label>Tenure (in months):</label>
+      <input type="number" name="tenure" min="0" required />
+
+      <label>Phone Service:</label>
+      <select name="PhoneService" required><option>Yes</option><option>No</option></select>
+
+      <label>Multiple Lines:</label>
+      <select name="MultipleLines" required>
+        <option>Yes</option><option>No</option><option>No phone service</option>
+      </select>
+
+      <label>Internet Service:</label>
+      <select name="InternetService" required>
+        <option>DSL</option><option>Fiber optic</option><option>No</option>
+      </select>
+
+      <label>Online Security:</label>
+      <select name="OnlineSecurity" required>
+        <option>Yes</option><option>No</option><option>No internet service</option>
+      </select>
+
+      <label>Online Backup:</label>
+      <select name="OnlineBackup" required>
+        <option>Yes</option><option>No</option><option>No internet service</option>
+      </select>
+
+      <label>Device Protection:</label>
+      <select name="DeviceProtection" required>
+        <option>Yes</option><option>No</option><option>No internet service</option>
+      </select>
+
+      <label>Tech Support:</label>
+      <select name="TechSupport" required>
+        <option>Yes</option><option>No</option><option>No internet service</option>
+      </select>
+
+      <label>Streaming TV:</label>
+      <select name="StreamingTV" required>
+        <option>Yes</option><option>No</option><option>No internet service</option>
+      </select>
+
+      <label>Streaming Movies:</label>
+      <select name="StreamingMovies" required>
+        <option>Yes</option><option>No</option><option>No internet service</option>
+      </select>
+
+      <label>Contract:</label>
+      <select name="Contract" required>
+        <option>Month-to-month</option>
+        <option>One year</option>
+        <option>Two year</option>
+      </select>
+
+      <label>Paperless Billing:</label>
+      <select name="PaperlessBilling" required><option>Yes</option><option>No</option></select>
+
+      <label>Payment Method:</label>
+      <select name="PaymentMethod" required>
+        <option>Electronic check</option>
+        <option>Mailed check</option>
+        <option>Bank transfer (automatic)</option>
+        <option>Credit card (automatic)</option>
+      </select>
+
+      <label>Monthly Charges:</label>
+      <input type="number" name="MonthlyCharges" step="0.01" required />
+
+      <label>Total Charges:</label>
+      <input type="number" name="TotalCharges" step="0.01" required />
+
+      <button type="submit">Predict</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

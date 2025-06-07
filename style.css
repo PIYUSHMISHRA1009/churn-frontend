@@ -1,158 +1,85 @@
-/* Base futuristic dark theme styles */
-
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #0d1117, #161b22);
-  color: #c9d1d9;
-  user-select: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
 }
 
 .container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem 2rem;
-  background: rgba(12, 17, 22, 0.85);
-  border-radius: 16px;
-  box-shadow: 0 0 15px #2389e3aa;
-  backdrop-filter: blur(10px);
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 170, 255, 0.2);
 }
 
-.title {
-  font-weight: 700;
-  font-size: 2.5rem;
+h1 {
   text-align: center;
-  margin-bottom: 2rem;
-  color: #58a6ff;
-  text-shadow: 0 0 8px #58a6ffaa;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #90caff;
+  text-shadow: 0 0 10px rgba(0, 170, 255, 0.6);
 }
 
-.form {
+.form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.3rem 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
 label {
+  margin-bottom: 6px;
   font-weight: 600;
-  font-size: 0.9rem;
-  color: #8b949e;
-  user-select: none;
+  color: #cfd8dc;
 }
 
-input,
-select {
-  background: #0d1117;
-  border: 1.5px solid #30363d;
+input, select {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid #444;
   border-radius: 8px;
-  color: #c9d1d9;
-  padding: 0.4rem 0.6rem;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
-input:focus,
-select:focus {
+input:focus, select:focus {
   outline: none;
-  border-color: #58a6ff;
-  box-shadow: 0 0 8px #58a6ff88;
+  border-color: #00bcd4;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-button.predict-btn {
-  grid-column: 1 / -1;
-  padding: 0.9rem 1.5rem;
-  font-weight: 700;
-  font-size: 1.1rem;
-  background: linear-gradient(90deg, #2389e3, #58a6ff);
+.predict-button {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px;
+  background: #2196f3;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
   border: none;
   border-radius: 12px;
-  color: white;
   cursor: pointer;
-  transition: background 0.3s ease;
-  box-shadow: 0 0 15px #2389e3bb;
-  user-select: none;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+  transition: 0.3s ease;
 }
 
-button.predict-btn:hover {
-  background: linear-gradient(90deg, #58a6ff, #2389e3);
-  box-shadow: 0 0 20px #58a6ffdd;
+.predict-button:hover {
+  background: #1976d2;
 }
 
-.loading-indicator {
+.result {
+  margin-top: 30px;
   text-align: center;
-  color: #58a6ff;
-  font-weight: 700;
-  margin-top: 1rem;
-}
-
-/* Phase 2 additional styles */
-
-.results {
-  margin-top: 3rem;
-  padding: 1.5rem 2rem;
-  background: rgba(20, 25, 35, 0.85);
-  border-radius: 16px;
-  box-shadow: 0 0 15px #50e3c2aa;
-  user-select: none;
-}
-
-.gauge-container {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 1.5rem auto;
-}
-
-.gauge-label {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 0;
-  text-align: center;
-  font-weight: 700;
   font-size: 1.3rem;
-  color: #58a6ff;
-  text-shadow: 0 0 8px #58a6ffcc;
-  transform: translateY(-50%);
-  user-select: none;
-}
-
-.key-factors-container {
-  margin: 2rem 0;
-  background: rgba(40, 50, 70, 0.6);
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 0 12px #4a90e2aa;
-}
-
-.summary-text {
-  margin: 1rem 0 2rem;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: #ccc;
-  user-select: text;
-}
-
-.historical-trends {
-  margin-top: 2rem;
-  background: rgba(30, 40, 60, 0.6);
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 0 10px #50e3c2aa;
-}
-
-/* Responsive */
-
-@media (max-width: 768px) {
-  .form {
-    grid-template-columns: 1fr;
-  }
-
-  .key-factors-container,
-  .historical-trends {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  font-weight: 600;
+  color: #66ffcc;
 }

@@ -1,121 +1,245 @@
+/* General Styles */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0f0f0f;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f0f0f;
   color: #fff;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 .container {
-  max-width: 950px;
-  margin: 0 auto;
-  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
 }
 
 h1 {
   text-align: center;
-  font-size: 2.2em;
-  margin-bottom: 25px;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #7df9ff;
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 16px;
+h2 {
+  margin-top: 0;
+  color: #00ffe7;
 }
 
-input, select {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #444;
-  background-color: #1a1a1a;
-  color: #eee;
-}
-
-.predict-button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(135deg, #00e0ff, #0072ff);
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.hidden {
-  display: none;
-}
-
-.result-card {
-  margin-top: 30px;
-  padding: 20px;
-  background: rgba(25, 25, 25, 0.8);
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+/* Main Content Flexbox */
+.main-content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 
-.gauge-container {
+/* Glassmorphic Form */
+.glass-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 500px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.1);
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.glass-form input {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: #1f1f1f;
+  color: white;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.glass-form input:focus {
+  outline: none;
+  box-shadow: 0 0 8px #00ffe7;
+}
+
+/* Form buttons container */
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.glass-form button {
+  flex: 1;
+  padding: 0.75rem;
+  background-color: #00ffe7;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: #000;
+  font-size: 1rem;
+}
+
+.glass-form button:hover {
+  background-color: #00c7b7;
+}
+
+/* Result Card */
+.result-card {
+  background: #1a1a1a;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,255,200,0.1);
+}
+
+.result-card h2 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Gauge Styles */
+.gauge {
+  position: relative;
   width: 150px;
-  margin-bottom: 15px;
+  margin: auto;
 }
 
-.circular-chart {
-  display: block;
-  margin: 10px auto;
-  max-width: 100%;
-  max-height: 250px;
+svg {
+  width: 150px;
+  height: 150px;
+  transform: rotate(-90deg);
 }
 
 .circle-bg {
   fill: none;
-  stroke: #eee;
-  stroke-width: 3.8;
+  stroke: #333;
+  stroke-width: 3;
 }
 
 .circle {
   fill: none;
-  stroke-width: 2.8;
+  stroke: #00ffe7;
+  stroke-width: 3;
   stroke-linecap: round;
-  stroke: #00e0ff;
-  transition: stroke-dasharray 1s ease-out;
+  transition: stroke-dasharray 1s ease, stroke 1s ease;
 }
 
-.percentage {
-  fill: white;
-  font-size: 0.5em;
-  text-anchor: middle;
-}
-
-.summary-text p {
-  margin: 6px 0;
-  font-size: 16px;
-  text-align: center;
-  color: #ddd;
-}
-
-#predictionLabel {
-  padding: 4px 10px;
-  border-radius: 12px;
+.gauge-text {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+  color: #00ffe7;
   font-weight: bold;
 }
 
-.low-risk {
-  background-color: #2ecc71;
-  color: white;
+/* Insights */
+#insights {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #a0f9ffcc;
+  line-height: 1.4;
+  text-align: left;
 }
 
-.medium-risk {
-  background-color: #f1c40f;
-  color: black;
+/* Batch Prediction Section */
+.batch-section {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0,255,255,0.1);
 }
 
-.high-risk {
-  background-color: #e74c3c;
-  color: white;
+.batch-section h2 {
+  color: #7df9ff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#csvUpload {
+  display: block;
+  margin: 1rem auto 1rem auto;
+}
+
+.batch-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.batch-controls button {
+  padding: 0.5rem 1rem;
+  background-color: #00ffe7;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+  transition: background 0.3s;
+}
+
+.batch-controls button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.batch-controls button:hover:not(:disabled) {
+  background-color: #00c7b7;
+}
+
+/* Batch Table */
+#batchResultsTable {
+  width: 100%;
+  border-collapse: collapse;
+  color: #00ffe7;
+}
+
+#batchResultsTable th, #batchResultsTable td {
+  border: 1px solid #00ffe7;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+#batchResultsTable th {
+  background: #005959;
+}
+
+#batchSummary {
+  color: #00ffe7;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .glass-form, .result-card {
+    width: 90%;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
 }

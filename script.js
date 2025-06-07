@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    // Show loading, hide results
     loading.hidden = false;
     resultsSection.hidden = true;
     summaryDiv.textContent = "";
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(form);
     const data = {};
     formData.forEach((val, key) => {
-      // Cast numeric values where needed
       if (["SeniorCitizen", "tenure"].includes(key)) data[key] = Number(val);
       else if (["MonthlyCharges", "TotalCharges"].includes(key))
         data[key] = parseFloat(val);
@@ -45,17 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
       loading.hidden = true;
       resultsSection.hidden = false;
 
-      // Animate and render gauge chart
       renderChurnGauge(result.probability.Churn);
 
-      // Render key factors chart (dummy data for demonstration)
       const topFactors = getDummyTopFactors(result.prediction);
       renderFactorsChart(topFactors);
 
-      // Render summary text
       renderSummaryText(result.prediction, topFactors);
 
-      // Hide historical trends for now (or implement if desired)
       document.querySelector(".historical-trends").hidden = true;
 
     } catch (error) {
@@ -80,7 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
           {
             data: [percent, 100 - percent],
             backgroundColor: [
-              `rgba(${Math.min(255, 2.55 * percent)}, ${Math.floor(255 - 2.55 * percent)}, 0, 0.85)`, // green to red gradient
+              `rgba(${Math.min(255, 2.55 * percent)}, ${Math.floor(
+                255 - 2.55 * percent
+              )}, 0, 0.85)`,
               "rgba(40,40,60,0.3)",
             ],
             borderWidth: 0,
@@ -97,17 +93,18 @@ document.addEventListener("DOMContentLoaded", () => {
           easing: "easeOutCubic",
         },
         plugins: {
-          tooltip: { enabled: true, callbacks: {
-            label: (ctx) => `Churn Risk: ${percent}%`,
-          }},
+          tooltip: {
+            enabled: true,
+            callbacks: {
+              label: (ctx) => `Churn Risk: ${percent}%`,
+            },
+          },
           legend: { display: false },
         },
       },
     });
 
-    // Update gauge label with % value
-    const label = document.getElementById("gaugeLabel");
-    label.textContent = `Churn Risk: ${percent}%`;
+    document.getElementById("gaugeLabel").textContent = `Churn Risk: ${percent}%`;
   }
 
   function renderFactorsChart(factors) {
@@ -149,16 +146,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderSummaryText(prediction, factors) {
-    const summary = prediction === "Yes"
-      ? `⚠️ The customer is likely to churn. Top factors: ${factors
-          .map((f) => f.feature)
-          .join(", ")}.`
-      : `✅ The customer is likely to stay. Keep up the great service!`;
+    const summary =
+      prediction === "Yes"
+        ? `⚠️ The customer is likely to churn. Top factors: ${factors
+            .map((f) => f.feature)
+            .join(", ")}.`
+        : `✅ The customer is likely to stay. Keep up the great service!`;
     summaryDiv.textContent = summary;
   }
 
-  // Dummy data generator for key factors
-  // In real usage, replace this by your API response with feature importance
+  // Dummy data for key factors (replace with API real data when ready)
   function getDummyTopFactors(prediction) {
     if (prediction === "Yes") {
       return [

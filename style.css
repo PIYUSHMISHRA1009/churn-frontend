@@ -38,6 +38,7 @@ label {
   font-weight: 600;
   font-size: 0.9rem;
   color: #8b949e;
+  user-select: none;
 }
 
 input,
@@ -70,6 +71,7 @@ button.predict-btn {
   cursor: pointer;
   transition: background 0.3s ease;
   box-shadow: 0 0 15px #2389e3bb;
+  user-select: none;
 }
 
 button.predict-btn:hover {
@@ -129,6 +131,7 @@ button.predict-btn:hover {
   font-size: 1.1rem;
   line-height: 1.5;
   color: #ccc;
+  user-select: text;
 }
 
 .historical-trends {

@@ -2,38 +2,210 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Customer Churn Predictor</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Customer Churn Prediction Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col items-center p-6">
-  <div class="max-w-4xl w-full bg-white p-6 rounded-2xl shadow-xl">
-    <h1 class="text-3xl font-bold mb-6 text-center text-blue-600">Customer Churn Predictor 🔮</h1>
-    
-    <form id="churnForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <!-- Form inputs will be injected by script.js -->
+<body>
+  <div class="container">
+    <h1>Customer Churn Prediction</h1>
+
+    <form id="churn-form" class="input-section">
+      <div class="form-row">
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender" required>
+          <option value="Female" selected>Female</option>
+          <option value="Male">Male</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="SeniorCitizen">Senior Citizen</label>
+        <select name="SeniorCitizen" id="SeniorCitizen" required>
+          <option value="0" selected>No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="Partner">Partner</label>
+        <select name="Partner" id="Partner" required>
+          <option value="Yes" selected>Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="Dependents">Dependents</label>
+        <select name="Dependents" id="Dependents" required>
+          <option value="No" selected>No</option>
+          <option value="Yes">Yes</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="tenure">Tenure (months)</label>
+        <input type="number" id="tenure" name="tenure" min="0" max="72" value="12" required />
+      </div>
+
+      <div class="form-row">
+        <label for="PhoneService">Phone Service</label>
+        <select name="PhoneService" id="PhoneService" required>
+          <option value="Yes" selected>Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="MultipleLines">Multiple Lines</label>
+        <select name="MultipleLines" id="MultipleLines" required>
+          <option value="No" selected>No</option>
+          <option value="Yes">Yes</option>
+          <option value="No phone service">No phone service</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="InternetService">Internet Service</label>
+        <select name="InternetService" id="InternetService" required>
+          <option value="DSL" selected>DSL</option>
+          <option value="Fiber optic">Fiber optic</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="OnlineSecurity">Online Security</label>
+        <select name="OnlineSecurity" id="OnlineSecurity" required>
+          <option value="Yes" selected>Yes</option>
+          <option value="No">No</option>
+          <option value="No internet service">No internet service</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="OnlineBackup">Online Backup</label>
+        <select name="OnlineBackup" id="OnlineBackup" required>
+          <option value="No" selected>No</option>
+          <option value="Yes">Yes</option>
+          <option value="No internet service">No internet service</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="DeviceProtection">Device Protection</label>
+        <select name="DeviceProtection" id="DeviceProtection" required>
+          <option value="Yes" selected>Yes</option>
+          <option value="No">No</option>
+          <option value="No internet service">No internet service</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="TechSupport">Tech Support</label>
+        <select name="TechSupport" id="TechSupport" required>
+          <option value="No" selected>No</option>
+          <option value="Yes">Yes</option>
+          <option value="No internet service">No internet service</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="StreamingTV">Streaming TV</label>
+        <select name="StreamingTV" id="StreamingTV" required>
+          <option value="No" selected>No</option>
+          <option value="Yes">Yes</option>
+          <option value="No internet service">No internet service</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="StreamingMovies">Streaming Movies</label>
+        <select name="StreamingMovies" id="StreamingMovies" required>
+          <option value="No" selected>No</option>
+          <option value="Yes">Yes</option>
+          <option value="No internet service">No internet service</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="Contract">Contract</label>
+        <select name="Contract" id="Contract" required>
+          <option value="Month-to-month" selected>Month-to-month</option>
+          <option value="One year">One year</option>
+          <option value="Two year">Two year</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="PaperlessBilling">Paperless Billing</label>
+        <select name="PaperlessBilling" id="PaperlessBilling" required>
+          <option value="Yes" selected>Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="PaymentMethod">Payment Method</label>
+        <select name="PaymentMethod" id="PaymentMethod" required>
+          <option value="Electronic check" selected>Electronic check</option>
+          <option value="Mailed check">Mailed check</option>
+          <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+          <option value="Credit card (automatic)">Credit card (automatic)</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="MonthlyCharges">Monthly Charges</label>
+        <input
+          type="number"
+          id="MonthlyCharges"
+          name="MonthlyCharges"
+          step="0.01"
+          min="0"
+          max="200"
+          value="70"
+          required
+        />
+      </div>
+
+      <div class="form-row">
+        <label for="TotalCharges">Total Charges</label>
+        <input
+          type="number"
+          id="TotalCharges"
+          name="TotalCharges"
+          step="0.01"
+          min="0"
+          max="10000"
+          value="500"
+          required
+        />
+      </div>
+
+      <button type="submit" class="predict-button">Predict</button>
     </form>
 
-    <div class="flex items-center justify-between mt-6">
-      <button type="button" id="fillSample" class="px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded-xl shadow-md">
-        🔄 Load Sample Data
-      </button>
-      <button type="submit" form="churnForm" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-md">
-        🚀 Predict
-      </button>
+    <div id="loading-indicator" class="loading" style="display:none;">
+      Predicting<span class="dots"></span>
     </div>
 
-    <div id="loader" class="mt-6 text-center hidden text-gray-500">⏳ Predicting...</div>
-
-    <div id="result" class="mt-6 hidden p-4 border rounded-xl bg-gray-50">
-      <h2 class="text-xl font-semibold mb-2">Prediction Result</h2>
-      <p id="predictionText" class="text-lg"></p>
-      <div class="mt-2 w-full bg-gray-200 rounded-full h-4">
-        <div id="probabilityBar" class="bg-green-500 h-4 rounded-full transition-all duration-700 ease-in-out" style="width: 50%"></div>
+    <section id="result-section" class="result-section" style="display:none;">
+      <h2>Prediction Result</h2>
+      <div class="probability-container">
+        <div id="churn-probability-bar" class="probability-bar"></div>
       </div>
-      <p id="probabilityLabel" class="text-sm mt-1 text-right text-gray-700"></p>
-    </div>
+      <p id="churn-probability-text" class="probability-text"></p>
+
+      <h3>Key Factors Contributing to Churn</h3>
+      <ul id="key-factors-list" class="key-factors-list">
+        <li>N/A (Coming soon)</li>
+      </ul>
+    </section>
+
+    <div id="error-message" class="error-message" style="display:none;"></div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

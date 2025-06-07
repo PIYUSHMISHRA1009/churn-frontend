@@ -4,175 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Customer Churn Predictor</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <div class="container">
-    <h1>Customer Churn Predictor</h1>
+    <h1>🔮 Customer Churn Prediction</h1>
     <form id="churnForm">
       <div class="form-grid">
-        <!-- Each form group has label + input -->
-        <div class="form-group">
-          <label for="gender">Gender</label>
-          <select id="gender" name="gender">
-            <option>Female</option>
-            <option>Male</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="SeniorCitizen">Senior Citizen (0/1)</label>
-          <select id="SeniorCitizen" name="SeniorCitizen">
-            <option>0</option>
-            <option>1</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="Partner">Partner</label>
-          <select id="Partner" name="Partner">
-            <option>Yes</option>
-            <option>No</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="Dependents">Dependents</label>
-          <select id="Dependents" name="Dependents">
-            <option>Yes</option>
-            <option>No</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="tenure">Tenure (months)</label>
-          <input type="number" id="tenure" name="tenure" min="0" required />
-        </div>
-
-        <div class="form-group">
-          <label for="PhoneService">Phone Service</label>
-          <select id="PhoneService" name="PhoneService">
-            <option>Yes</option>
-            <option>No</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="MultipleLines">Multiple Lines</label>
-          <select id="MultipleLines" name="MultipleLines">
-            <option>Yes</option>
-            <option>No</option>
-            <option>No phone service</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="InternetService">Internet Service</label>
-          <select id="InternetService" name="InternetService">
-            <option>DSL</option>
-            <option>Fiber optic</option>
-            <option>No</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="OnlineSecurity">Online Security</label>
-          <select id="OnlineSecurity" name="OnlineSecurity">
-            <option>Yes</option>
-            <option>No</option>
-            <option>No internet service</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="OnlineBackup">Online Backup</label>
-          <select id="OnlineBackup" name="OnlineBackup">
-            <option>Yes</option>
-            <option>No</option>
-            <option>No internet service</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="DeviceProtection">Device Protection</label>
-          <select id="DeviceProtection" name="DeviceProtection">
-            <option>Yes</option>
-            <option>No</option>
-            <option>No internet service</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="TechSupport">Tech Support</label>
-          <select id="TechSupport" name="TechSupport">
-            <option>Yes</option>
-            <option>No</option>
-            <option>No internet service</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="StreamingTV">Streaming TV</label>
-          <select id="StreamingTV" name="StreamingTV">
-            <option>Yes</option>
-            <option>No</option>
-            <option>No internet service</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="StreamingMovies">Streaming Movies</label>
-          <select id="StreamingMovies" name="StreamingMovies">
-            <option>Yes</option>
-            <option>No</option>
-            <option>No internet service</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="Contract">Contract</label>
-          <select id="Contract" name="Contract">
-            <option>Month-to-month</option>
-            <option>One year</option>
-            <option>Two year</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="PaperlessBilling">Paperless Billing</label>
-          <select id="PaperlessBilling" name="PaperlessBilling">
-            <option>Yes</option>
-            <option>No</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="PaymentMethod">Payment Method</label>
-          <select id="PaymentMethod" name="PaymentMethod">
-            <option>Electronic check</option>
-            <option>Mailed check</option>
-            <option>Bank transfer (automatic)</option>
-            <option>Credit card (automatic)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="MonthlyCharges">Monthly Charges</label>
-          <input type="number" id="MonthlyCharges" name="MonthlyCharges" min="0" step="0.1" required />
-        </div>
-
-        <div class="form-group">
-          <label for="TotalCharges">Total Charges</label>
-          <input type="number" id="TotalCharges" name="TotalCharges" min="0" step="0.1" required />
-        </div>
+        <input type="text" name="gender" placeholder="Gender" required />
+        <input type="number" name="SeniorCitizen" placeholder="Senior Citizen (0 or 1)" required />
+        <input type="text" name="Partner" placeholder="Partner (Yes/No)" required />
+        <input type="text" name="Dependents" placeholder="Dependents (Yes/No)" required />
+        <input type="number" name="tenure" placeholder="Tenure (in months)" required />
+        <input type="text" name="PhoneService" placeholder="Phone Service (Yes/No)" required />
+        <input type="text" name="MultipleLines" placeholder="Multiple Lines (Yes/No/No phone service)" required />
+        <input type="text" name="InternetService" placeholder="Internet Service (DSL/Fiber optic/No)" required />
+        <input type="text" name="OnlineSecurity" placeholder="Online Security (Yes/No/No internet service)" required />
+        <input type="text" name="OnlineBackup" placeholder="Online Backup (Yes/No/No internet service)" required />
+        <input type="text" name="DeviceProtection" placeholder="Device Protection (Yes/No/No internet service)" required />
+        <input type="text" name="TechSupport" placeholder="Tech Support (Yes/No/No internet service)" required />
+        <input type="text" name="StreamingTV" placeholder="Streaming TV (Yes/No/No internet service)" required />
+        <input type="text" name="StreamingMovies" placeholder="Streaming Movies (Yes/No/No internet service)" required />
+        <input type="text" name="Contract" placeholder="Contract (Month-to-month/One year/Two year)" required />
+        <input type="text" name="PaperlessBilling" placeholder="Paperless Billing (Yes/No)" required />
+        <input type="text" name="PaymentMethod" placeholder="Payment Method" required />
+        <input type="number" name="MonthlyCharges" placeholder="Monthly Charges" required />
+        <input type="number" name="TotalCharges" placeholder="Total Charges" required />
       </div>
-
       <button type="submit" class="predict-button">Predict</button>
     </form>
 
-    <div class="result" id="result"></div>
-  </div>
+    <div id="loadingIndicator" class="hidden">⏳ Predicting...</div>
 
+    <div id="resultCard" class="result-card hidden">
+      <div class="gauge-container">
+        <svg viewBox="0 0 36 36" class="circular-chart">
+          <path class="circle-bg"
+                d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                   a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          <path id="circle-bar" class="circle"
+                stroke-dasharray="0, 100"
+                d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                   a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          <text x="18" y="20.35" class="percentage" id="probabilityText">0%</text>
+        </svg>
+      </div>
+      <div class="summary-text">
+        <p><strong>Prediction:</strong> <span id="predictionLabel"></span></p>
+        <p><strong>Risk Level:</strong> <span id="riskLevel"></span></p>
+        <p id="insightMessage"></p>
+      </div>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
